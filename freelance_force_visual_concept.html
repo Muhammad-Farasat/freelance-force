@@ -1,0 +1,592 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+.ff-root * { margin: 0; padding: 0; box-sizing: border-box; }
+.ff-root {
+  font-family: 'DM Sans', sans-serif;
+  background: #111;
+  color: #fff;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.ff-scroll {
+  height: 480px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.ff-scroll::-webkit-scrollbar { display: none; }
+
+/* NAV */
+.ff-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 32px;
+  background: #C8221A;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.ff-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  color: #fff;
+  letter-spacing: 0.08em;
+}
+.ff-nav-links { display: flex; gap: 24px; align-items: center; }
+.ff-nav-link {
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.ff-nav-cta {
+  font-size: 11px;
+  color: #C8221A;
+  background: #fff;
+  padding: 7px 16px;
+  border-radius: 3px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* HERO */
+.ff-hero {
+  background: #C8221A;
+  padding: 52px 32px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.ff-hero-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 16px;
+  animation: fadeUp 0.8s ease both;
+}
+.ff-hero-h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 108px;
+  line-height: 0.9;
+  color: #fff;
+  letter-spacing: 0.01em;
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+.ff-hero-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 12px;
+  font-weight: 300;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+.ff-hero-line {
+  width: 40px;
+  height: 1px;
+  background: rgba(255,255,255,0.3);
+  margin: 28px 0;
+  animation: expandLine 1s 0.4s ease both;
+}
+.ff-hero-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  max-width: 320px;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+.ff-hero-ctas {
+  margin-top: 32px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  animation: fadeUp 0.8s 0.4s ease both;
+}
+.ff-btn-primary {
+  background: #fff;
+  color: #C8221A;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 3px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.ff-btn-ghost {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ff-btn-ghost span {
+  display: inline-block;
+  width: 20px;
+  height: 1px;
+  background: rgba(255,255,255,0.3);
+}
+.ff-hero-bg-text {
+  position: absolute;
+  right: -10px;
+  bottom: -20px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 160px;
+  color: rgba(180,20,14,0.35);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* TICKER */
+.ff-ticker {
+  background: #111;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+  padding: 14px 0;
+  overflow: hidden;
+}
+.ff-ticker-inner {
+  display: flex;
+  gap: 48px;
+  animation: ticker 12s linear infinite;
+  white-space: nowrap;
+}
+.ff-ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #555;
+  flex-shrink: 0;
+}
+.ff-ticker-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #C8221A;
+  flex-shrink: 0;
+}
+
+/* SERVICES */
+.ff-services {
+  background: #111;
+  padding: 52px 32px;
+}
+.ff-section-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #C8221A;
+  margin-bottom: 36px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ff-section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #222;
+  max-width: 60px;
+}
+.ff-services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #222; }
+.ff-service {
+  background: #111;
+  padding: 32px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+.ff-service::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 2px;
+  background: #C8221A;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.ff-service:hover { background: #161616; }
+.ff-service:hover::after { transform: scaleX(1); }
+.ff-service-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px;
+  color: #1e1e1e;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.ff-service-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  color: #fff;
+  letter-spacing: 0.02em;
+  margin-bottom: 10px;
+}
+.ff-service-desc {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* WHY */
+.ff-why {
+  background: #fff;
+  padding: 52px 32px;
+}
+.ff-why-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 36px;
+}
+.ff-why-h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 56px;
+  color: #111;
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+}
+.ff-why-h2 em { color: #C8221A; font-style: normal; }
+.ff-why-intro {
+  font-size: 12px;
+  color: #999;
+  max-width: 180px;
+  line-height: 1.7;
+  text-align: right;
+  margin-top: 4px;
+}
+.ff-why-items { display: flex; flex-direction: column; gap: 0; }
+.ff-why-item {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 20px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.ff-why-item:first-child { border-top: 1px solid #f0f0f0; }
+.ff-why-idx {
+  font-size: 11px;
+  color: #C8221A;
+  letter-spacing: 0.1em;
+  min-width: 24px;
+  margin-top: 2px;
+}
+.ff-why-content {}
+.ff-why-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #111;
+  margin-bottom: 4px;
+}
+.ff-why-text { font-size: 12px; color: #999; line-height: 1.6; }
+
+/* EVENTS */
+.ff-events {
+  background: #C8221A;
+  padding: 52px 32px;
+}
+.ff-events-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 32px;
+}
+.ff-events-h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+.ff-events-link {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.ff-events-list { display: flex; flex-direction: column; gap: 1px; }
+.ff-event {
+  background: rgba(0,0,0,0.15);
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ff-event-left {}
+.ff-event-date {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 4px;
+}
+.ff-event-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+}
+.ff-event-badge {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 2px;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.6);
+}
+.ff-event-badge.upcoming {
+  border-color: #fff;
+  color: #fff;
+}
+
+/* SPLIT CTA */
+.ff-split { display: grid; grid-template-columns: 1fr 1fr; }
+.ff-split-hire {
+  background: #0d0d0d;
+  padding: 48px 32px;
+}
+.ff-split-join {
+  background: #C8221A;
+  padding: 48px 32px;
+}
+.ff-split-tag {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.ff-split-hire .ff-split-tag { color: #555; }
+.ff-split-join .ff-split-tag { color: rgba(255,255,255,0.45); }
+.ff-split-h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 42px;
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+  margin-bottom: 14px;
+}
+.ff-split-hire .ff-split-h3 { color: #fff; }
+.ff-split-join .ff-split-h3 { color: #fff; }
+.ff-split-p {
+  font-size: 12px;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+.ff-split-hire .ff-split-p { color: #555; }
+.ff-split-join .ff-split-p { color: rgba(255,255,255,0.55); }
+.ff-split-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 11px 20px;
+  border-radius: 3px;
+}
+.ff-split-hire .ff-split-btn {
+  background: #C8221A;
+  color: #fff;
+}
+.ff-split-join .ff-split-btn {
+  background: #fff;
+  color: #C8221A;
+}
+
+/* FOOTER */
+.ff-footer {
+  background: #0a0a0a;
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #1a1a1a;
+}
+.ff-footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 0.08em;
+}
+.ff-footer-links { display: flex; gap: 20px; }
+.ff-footer-link { font-size: 10px; color: #444; letter-spacing: 0.1em; text-transform: uppercase; }
+.ff-footer-copy { font-size: 10px; color: #333; }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes expandLine {
+  from { width: 0; opacity: 0; }
+  to { width: 40px; opacity: 1; }
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* SCROLL HINT */
+.ff-scroll-hint {
+  text-align: center;
+  padding: 8px;
+  background: #0a0a0a;
+  font-size: 10px;
+  color: #333;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+</style>
+
+<h2 class="sr-only">Freelance Force homepage visual concept — a red-dominant, cinematic premium layout</h2>
+
+<div class="ff-root">
+  <div class="ff-scroll">
+
+    <nav class="ff-nav">
+      <div class="ff-logo">Freelance Force</div>
+      <div class="ff-nav-links">
+        <span class="ff-nav-link">Services</span>
+        <span class="ff-nav-link">About</span>
+        <span class="ff-nav-link">Join</span>
+        <span class="ff-nav-cta">Hire Us</span>
+      </div>
+    </nav>
+
+    <section class="ff-hero">
+      <div class="ff-hero-eyebrow">University of — Student Collective</div>
+      <div class="ff-hero-h1">THE<br>STUDIO.</div>
+      <div class="ff-hero-sub">Inside your university.</div>
+      <div class="ff-hero-line"></div>
+      <div class="ff-hero-desc">Real projects. Real deadlines. A team that operates like a studio, not a club.</div>
+      <div class="ff-hero-ctas">
+        <div class="ff-btn-primary">Hire the Team</div>
+        <div class="ff-btn-ghost"><span></span> Explore work</div>
+      </div>
+      <div class="ff-hero-bg-text">FF</div>
+    </section>
+
+    <div class="ff-ticker">
+      <div class="ff-ticker-inner">
+        <span class="ff-ticker-item"><span class="ff-ticker-dot"></span>Web Development</span>
+        <span class="ff-ticker-item"><span class="ff-ticker-dot"></span>Graphic Design</span>
+        <span class="ff-ticker-item"><span class="ff-ticker-dot"></span>Brand Identity</span>
+        <span class="ff-ticker-item"><span class="ff-ticker-dot"></span>Industry Mentored</span>
+        <span class="ff-ticker-item"><span class="ff-ticker-dot"></span>Real Projects</span>
+        <span class="ff-ticker-item"><span class="ff-ticker-dot"></span>Web Development</span>
+        <span class="ff-ticker-item"><span class="ff-ticker-dot"></span>Graphic Design</span>
+        <span class="ff-ticker-item"><span class="ff-ticker-dot"></span>Brand Identity</span>
+        <span class="ff-ticker-item"><span class="ff-ticker-dot"></span>Industry Mentored</span>
+        <span class="ff-ticker-item"><span class="ff-ticker-dot"></span>Real Projects</span>
+      </div>
+    </div>
+
+    <section class="ff-services">
+      <div class="ff-section-label">What We Do</div>
+      <div class="ff-services-grid">
+        <div class="ff-service">
+          <div class="ff-service-num">01</div>
+          <div class="ff-service-name">Web Development</div>
+          <div class="ff-service-desc">Custom-built websites and web apps. Fast, clean, and built to perform.</div>
+        </div>
+        <div class="ff-service">
+          <div class="ff-service-num">02</div>
+          <div class="ff-service-name">Graphic Design</div>
+          <div class="ff-service-desc">Brand systems, visual identity, and design assets that communicate.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ff-why">
+      <div class="ff-why-top">
+        <div class="ff-why-h2">WHY<br><em>WORK</em><br>WITH US</div>
+        <div class="ff-why-intro">Three reasons. No fluff.</div>
+      </div>
+      <div class="ff-why-items">
+        <div class="ff-why-item">
+          <div class="ff-why-idx">01</div>
+          <div class="ff-why-content">
+            <div class="ff-why-title">We operate like a studio, not a club</div>
+            <div class="ff-why-text">Direct communication, real accountability, no layers.</div>
+          </div>
+        </div>
+        <div class="ff-why-item">
+          <div class="ff-why-idx">02</div>
+          <div class="ff-why-content">
+            <div class="ff-why-title">Mentored by industry professionals</div>
+            <div class="ff-why-text">Our team is trained and guided by working industry experts.</div>
+          </div>
+        </div>
+        <div class="ff-why-item">
+          <div class="ff-why-idx">03</div>
+          <div class="ff-why-content">
+            <div class="ff-why-title">Built for legacy</div>
+            <div class="ff-why-text">An organisation that outlives its founders. Consistency you can count on.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ff-events">
+      <div class="ff-events-top">
+        <div class="ff-events-h2">WHAT WE'VE<br>BEEN UP TO</div>
+        <div class="ff-events-link">View All →</div>
+      </div>
+      <div class="ff-events-list">
+        <div class="ff-event">
+          <div class="ff-event-left">
+            <div class="ff-event-date">Mar 2025 · Collaboration</div>
+            <div class="ff-event-name">Inter-Society Collab Event</div>
+          </div>
+          <div class="ff-event-badge">Past</div>
+        </div>
+        <div class="ff-event">
+          <div class="ff-event-left">
+            <div class="ff-event-date">Coming Soon</div>
+            <div class="ff-event-name">Professional Workshop Series</div>
+          </div>
+          <div class="ff-event-badge upcoming">Upcoming</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ff-split">
+      <div class="ff-split-hire">
+        <div class="ff-split-tag">For Clients</div>
+        <div class="ff-split-h3">NEED WORK<br>DONE?</div>
+        <div class="ff-split-p">Tell us about your project. We'll tell you if we can deliver.</div>
+        <div class="ff-split-btn">Get in Touch →</div>
+      </div>
+      <div class="ff-split-join">
+        <div class="ff-split-tag">For Students</div>
+        <div class="ff-split-h3">WANT<br>IN?</div>
+        <div class="ff-split-p">Work on real projects. Access professionals. Build your career.</div>
+        <div class="ff-split-btn">Apply Now →</div>
+      </div>
+    </div>
+
+    <div class="ff-footer">
+      <div class="ff-footer-logo">Freelance Force</div>
+      <div class="ff-footer-links">
+        <span class="ff-footer-link">Instagram</span>
+        <span class="ff-footer-link">LinkedIn</span>
+        <span class="ff-footer-link">Contact</span>
+      </div>
+      <div class="ff-footer-copy">© 2025 Freelance Force</div>
+    </div>
+
+  </div>
+  <div class="ff-scroll-hint">↕ Scroll to explore the full homepage</div>
+</div>
